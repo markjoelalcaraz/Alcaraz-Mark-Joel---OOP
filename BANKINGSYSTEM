@@ -1,0 +1,582 @@
+LOGIN
+package com.mycompany.bankingsystem;
+
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+
+
+public class LOGIN extends javax.swing.JFrame {
+ HashMap<String, String> creds = new HashMap<>();
+    
+    // HashMap to store username-balance pairs
+    HashMap<String, Double> balances = new HashMap<>();
+
+ 
+    public LOGIN() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        un = new javax.swing.JTextField();
+        passwordtxtfield = new javax.swing.JPasswordField();
+        createbtn = new javax.swing.JButton();
+        login = new javax.swing.JButton();
+        showps = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+
+        jLabel4.setText("jLabel4");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("BANKING SYSTEM LOGIN");
+        setMinimumSize(new java.awt.Dimension(500, 300));
+        setPreferredSize(new java.awt.Dimension(500, 300));
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setMinimumSize(new java.awt.Dimension(500, 300));
+        jPanel1.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("BANKING SYSTEM");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(140, 23, 193, 32);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("USER ID");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(72, 73, 60, 20);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("PASSCODE");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(72, 113, 80, 20);
+
+        un.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unActionPerformed(evt);
+            }
+        });
+        jPanel1.add(un);
+        un.setBounds(161, 73, 154, 22);
+
+        passwordtxtfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordtxtfieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(passwordtxtfield);
+        passwordtxtfield.setBounds(161, 113, 154, 22);
+
+        createbtn.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        createbtn.setText("SIGN UP");
+        createbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(createbtn);
+        createbtn.setBounds(250, 170, 74, 23);
+
+        login.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        login.setText("LOGIN");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
+        jPanel1.add(login);
+        login.setBounds(150, 170, 72, 23);
+
+        showps.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        showps.setForeground(new java.awt.Color(255, 255, 255));
+        showps.setText("Show Password");
+        showps.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showpsActionPerformed(evt);
+            }
+        });
+        jPanel1.add(showps);
+        showps.setBounds(161, 141, 99, 20);
+
+        jButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jButton1.setText("EXIT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(200, 200, 72, 23);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mark Joel\\Pictures\\Camera Roll\\Travis Scott_Astroworld.jpeg")); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(-160, -60, 841, 440);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        String username = un.getText();
+        String password = new String(passwordtxtfield.getPassword());
+ 
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Username or password cannot be empty.");
+            return;
+        }
+        
+        if (creds.containsKey(username)) {
+            
+            if (creds.get(username).equals(password)) {
+                JOptionPane.showMessageDialog(null, "Login successful!");
+                
+               Menu menuFrame = new Menu(username);
+               menuFrame.setBalances(balances);
+               menuFrame.setVisible(true);
+               dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect password!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Account does not exist.");
+        }
+    }                                     
+
+    private void createbtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        String username = un.getText();
+        String password = new String(passwordtxtfield.getPassword());
+        
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Username or password cannot be empty!");
+            return;
+        }       
+        
+        if (creds.containsKey(username)) {
+            JOptionPane.showMessageDialog(null, "Account already exists!");
+        } else {
+            
+            creds.put(username, password);
+            balances.put(username, 5000.0);
+            JOptionPane.showMessageDialog(null, "Account created successfully!");
+        }
+    }                                         
+
+    private void showpsActionPerformed(java.awt.event.ActionEvent evt) {                                       
+            if (showps.isSelected()){
+            passwordtxtfield.setEchoChar((char)0);
+        } else
+            
+            passwordtxtfield.setEchoChar('*');
+    }                                      
+
+    private void unActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        // TODO add your handling code here:
+    }                                  
+
+    private void passwordtxtfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        // TODO add your handling code here:
+    }                                                
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Closing the Application", JOptionPane.YES_NO_OPTION);
+        
+        if (option == JOptionPane.YES_OPTION){
+        JOptionPane.showMessageDialog(null,"Closing the Application, Thank you!");
+        System.exit(0);     
+        }
+    }                                        
+
+
+    public static void main(String args[]) {
+        
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(LOGIN.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(LOGIN.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(LOGIN.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(LOGIN.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LOGIN().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton createbtn;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton login;
+    private javax.swing.JPasswordField passwordtxtfield;
+    private javax.swing.JCheckBox showps;
+    private javax.swing.JTextField un;
+    // End of variables declaration                   
+}
+
+MENU
+
+
+package com.mycompany.bankingsystem;
+
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+
+public class Menu extends javax.swing.JFrame {
+private HashMap<String, Double> balances;
+ private String username;
+    public Menu() {
+        
+        initComponents();
+    }
+     public void setBalances(HashMap<String, Double> balances) {
+        this.balances = balances;
+    }
+    public Menu(String username) {
+    this.username = username;
+    initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        viewbalancebtn = new javax.swing.JButton();
+        withdrawbtn = new javax.swing.JButton();
+        transferbtn = new javax.swing.JButton();
+        Deposit = new javax.swing.JButton();
+        exitbtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("BANKING SYSTEM MAIN MENU");
+        setMinimumSize(new java.awt.Dimension(500, 300));
+        setPreferredSize(new java.awt.Dimension(500, 300));
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("BANKING SYSTEM");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(151, 19, 193, 32);
+
+        viewbalancebtn.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        viewbalancebtn.setText("VIEW BALANCE");
+        viewbalancebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewbalancebtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(viewbalancebtn);
+        viewbalancebtn.setBounds(151, 63, 202, 23);
+
+        withdrawbtn.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        withdrawbtn.setText("WITHDRAW");
+        withdrawbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                withdrawbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(withdrawbtn);
+        withdrawbtn.setBounds(151, 98, 202, 23);
+
+        transferbtn.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        transferbtn.setText("TRANSFER FUNDS");
+        transferbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(transferbtn);
+        transferbtn.setBounds(151, 133, 202, 23);
+
+        Deposit.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        Deposit.setText("DEPOSIT");
+        Deposit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DepositActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Deposit);
+        Deposit.setBounds(151, 168, 202, 23);
+
+        exitbtn.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        exitbtn.setText("EXIT");
+        exitbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(exitbtn);
+        exitbtn.setBounds(151, 203, 202, 23);
+
+        jLabel2.setText("jLabel2");
+        jLabel2.setMinimumSize(new java.awt.Dimension(500, 300));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 500, 320);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void viewbalancebtnActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        if (balances.containsKey(username)) {
+            double balance = balances.get(username);
+            JOptionPane.showMessageDialog(null, "Balance for " + username + ": ₱" + balance);
+        } else {
+            JOptionPane.showMessageDialog(null, "No balance found");
+        }
+    }                                              
+
+    private void withdrawbtnActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        String withdrawAmountString = JOptionPane.showInputDialog(null, "Enter the amount you want to withdraw:");
+ 
+    if (withdrawAmountString == null) {
+        return; 
+    }
+   
+    double withdrawAmount;
+    try {
+        withdrawAmount = Double.parseDouble(withdrawAmountString);
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(null, "Invalid amount entered! try again.");
+        return; 
+    }
+   
+    if (withdrawAmount <= 499) {
+        JOptionPane.showMessageDialog(null, "Withrawal amount must be at least 500");
+        return; 
+    }  
+    if (balances.containsKey(username)) {
+        
+        double currentBalance = balances.get(username);
+
+        if (withdrawAmount > currentBalance) {
+            JOptionPane.showMessageDialog(null, "Insufficient funds!");
+            return; 
+        }
+         int confirmation = JOptionPane.showConfirmDialog(null, "Are you sure you want to withraw ₱ " + withdrawAmount, "confirmation", JOptionPane.YES_NO_OPTION);
+        
+         if (confirmation == JOptionPane.YES_OPTION){
+         
+        double newBalance = currentBalance - withdrawAmount;
+        balances.put(username, newBalance);
+        JOptionPane.showMessageDialog(null, "Withdrawal successful! Your new balance is: ₱" + newBalance);
+         } 
+         else if (confirmation == JOptionPane.NO_OPTION) {
+             JOptionPane.showMessageDialog(null, "your balance is still " + currentBalance);
+         }
+    } else {
+        JOptionPane.showMessageDialog(null, "No balance found");
+    }
+    }                                           
+
+    private void transferbtnActionPerformed(java.awt.event.ActionEvent evt) {                                            
+             String accountname;
+    do {
+    accountname = JOptionPane.showInputDialog(null, "Enter the account username you want to transfer to:");
+    
+    if (accountname == null) {
+        return; 
+    } else if (accountname.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter an account name you want to transfer to.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    } while (accountname.isEmpty());
+    String transferAmountString = JOptionPane.showInputDialog(null, "Enter amount you want to transfer:");
+    if (transferAmountString == null) {
+    return; 
+    }
+     double transferAmount;
+     try {
+     transferAmount = Double.parseDouble(transferAmountString);
+    } catch (NumberFormatException ex) {
+    JOptionPane.showMessageDialog(null, "Please enter a valid amount.", "Error", JOptionPane.ERROR_MESSAGE);
+    return; 
+    }
+
+    if (transferAmount <= 499) {
+    JOptionPane.showMessageDialog(null, "Transfer amount must be atleast 500.");
+    return; 
+    }
+     if (balances.containsKey(username)) {
+    double currentBalance = balances.get(username);
+   
+    if (transferAmount > currentBalance) {
+        JOptionPane.showMessageDialog(null, "Insufficient funds! try again");
+        return; 
+    }
+    
+    int confirmation = JOptionPane.showConfirmDialog(null, "Are you sure you want to transfer ₱ " + transferAmount + " to " + accountname, " confirmation", JOptionPane.YES_NO_OPTION);
+    
+    if (confirmation == JOptionPane.YES_OPTION){
+         double newBalance = currentBalance - transferAmount;
+         JOptionPane.showMessageDialog(null, "Transfer successful! Your new balance is: ₱" + newBalance);
+    balances.put(username, newBalance);
+    }
+    else if (confirmation == JOptionPane.NO_OPTION){
+        JOptionPane.showMessageDialog(null, "next time double check your info before clicking ok");
+    }
+
+    
+} else {
+    JOptionPane.showMessageDialog(null, "No balance found ");
+}
+    }                                           
+
+    private void DepositActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        String depositAmountString = JOptionPane.showInputDialog(null, "Enter amount you want to deposit:");
+   
+    if (depositAmountString == null) {
+        return; 
+    }
+   
+    double depositAmount;
+    try {
+        depositAmount = Double.parseDouble(depositAmountString);
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(null, "Invalid amount entered! Try again.");
+        return; 
+    }
+  
+    if (depositAmount <= 499) {
+        JOptionPane.showMessageDialog(null, "Deposit amount must be at least 500.");
+        return; 
+    }
+    
+    int confirmation = JOptionPane.showConfirmDialog(null, "Are you sure you want to deposit ₱ " + depositAmount, "confirmation", JOptionPane.YES_NO_OPTION);
+
+    
+    if (confirmation == JOptionPane.YES_OPTION) {
+    if (balances.containsKey(username)) {
+        
+        double currentBalance = balances.get(username);
+        double newBalance = currentBalance + depositAmount;
+        balances.put(username, newBalance);      
+        JOptionPane.showMessageDialog(null, "Deposit successful! Your new balance is: ₱" + newBalance);
+    } else {
+        JOptionPane.showMessageDialog(null, "No balance found");
+    }
+    }
+    }                                       
+
+    private void exitbtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
+          
+        int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Closing the Application", JOptionPane.YES_NO_OPTION);
+        
+        if (option == JOptionPane.YES_OPTION){
+        JOptionPane.showMessageDialog(null,"Closing the Application, Thank you!");
+        System.exit(0);     
+        }
+    }                                       
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Menu().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton Deposit;
+    private javax.swing.JButton exitbtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton transferbtn;
+    private javax.swing.JButton viewbalancebtn;
+    private javax.swing.JButton withdrawbtn;
+    // End of variables declaration                   
+}
+
+
+
